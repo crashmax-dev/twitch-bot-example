@@ -1,7 +1,7 @@
-const path = require('path')
-const { TwitchCommandClient } = require('twitch-core')
+import path from 'path'
+import { TwitchCommandClient } from 'twitch-core'
 
-const dotenv = require('dotenv')
+import dotenv from 'dotenv'
 dotenv.config()
 
 const client = new TwitchCommandClient({
