@@ -20,7 +20,7 @@
   "homepage": "https://github.com/crashmax-dev/twitch-bot-example#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "twitch-core": "^1.0.0-rc17"
+    "twitch-core": "^1.0.0-rc18"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",

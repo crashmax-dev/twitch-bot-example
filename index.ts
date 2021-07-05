@@ -23,4 +23,6 @@ client.provider.set(
 
 client.registerDefaultCommands()
 
+client.registerCommandsIn(path.join(__dirname, '/commands'))
+
 client.connect()

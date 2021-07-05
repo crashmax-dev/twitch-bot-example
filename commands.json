@@ -1,1 +1,15 @@
-{}
+{
+  "Example": {
+    "name": "test",
+    "args": [
+      {
+        "name": "arg1",
+        "defaultValue": "hello"
+      },
+      {
+        "name": "arg2",
+        "defaultValue": 10
+      }
+    ]
+  }
+}
