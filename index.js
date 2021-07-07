@@ -1,26 +1,20 @@
 const path = require('path')
 const { TwitchCommandClient } = require('twitch-core')
-
-const dotenv = require('dotenv')
-dotenv.config()
+require('dotenv').config()
 
 const client = new TwitchCommandClient({
   username: process.env.BOT_USERNAME,
   oauth: process.env.OAUTH_KEY,
-  channels: [process.env.CHANNEL],
-  verboseLogging: false,
-  botOwners: ['vs_code'],
-  serverPort: 9999
+  channels: JSON.parse(process.env.CHANNELS),
+  botOwners: ['vs_code']
 })
 
-client.on('message', (msg) => {
-  console.log(msg)
-})
+client.on('message', (msg) => { })
 
 client.provider.set(
-  path.join(__dirname, '/commands.json')
+  path.join(__dirname, '/text-commands.json')
 )
 
-client.registerDefaultCommands()
+client.registerTextCommands()
 
 client.connect()
