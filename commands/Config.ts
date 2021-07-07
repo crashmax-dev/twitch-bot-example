@@ -23,10 +23,10 @@ export default class Config extends TwitchChatCommand {
       args.shift()
       const key = args[0]
       args.shift()
+      const value = args.join(' ')
 
       switch (action) {
         case 'set':
-          const value = args.join(' ')
           this.set(msg, key, value)
           break
 
@@ -52,21 +52,21 @@ export default class Config extends TwitchChatCommand {
   get(msg: TwitchChatMessage, key: string) {
     const value = this.provider.get(key).value()
 
-    if (value) {
+    if (value !== undefined) {
       msg.reply(`Get → ${value}`)
     } else {
-      msg.reply(`Value '${key}' is not found!`)
+      msg.reply(`Key '${key}' is not found!`)
     }
   }
 
   unset(msg: TwitchChatMessage, key: string) {
     const value = this.provider.get(key).value()
 
-    if (value) {
+    if (value !== undefined) {
       this.provider.unset(key).write()
       msg.reply(`Unset → ${value}`)
     } else {
-      msg.reply(`Value '${key}' is not found!`)
+      msg.reply(`Key '${key}' is not found!`)
     }
   }
 }
