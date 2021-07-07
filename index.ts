@@ -1,5 +1,5 @@
-import path from 'path'
-import { TwitchCommandClient } from 'twitch-core'
+import { join } from 'path'
+import { TwitchCommandClient, TwitchChatMessage } from 'twitch-core'
 
 import dotenv from 'dotenv'
 dotenv.config()
@@ -7,22 +7,24 @@ dotenv.config()
 const client = new TwitchCommandClient({
   username: process.env.BOT_USERNAME,
   oauth: process.env.OAUTH_KEY,
-  channels: [process.env.CHANNEL],
-  verboseLogging: false,
-  botOwners: ['vs_code'],
-  serverPort: 9999
+  channels: JSON.parse(process.env.CHANNELS),
+  botOwners: ['vs_code']
 })
 
-client.on('message', (msg) => {
-  console.log(msg)
-})
+client.on('message', (msg: TwitchChatMessage) => { })
 
 client.provider.set(
-  path.join(__dirname, '/commands.json')
+  join(__dirname, 'config/text-commands.json'),
+  join(__dirname, 'config/commands.json'),
+  join(__dirname, 'config/config.json')
 )
+
+client.registerTextCommands()
 
 client.registerDefaultCommands()
 
-client.registerCommandsIn(path.join(__dirname, '/commands'))
+client.registerCommandsIn(
+  join(__dirname, '/commands')
+)
 
 client.connect()

@@ -1,0 +1,8 @@
+{
+  "watch": [
+    "commands/",
+    "index.ts"
+  ],
+  "ext": "ts",
+  "exec": "ts-node index.ts"
+}

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,10 +20,11 @@
   "homepage": "https://github.com/crashmax-dev/twitch-bot-example#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "twitch-core": "^1.0.0-rc18"
+    "twitch-core": "^1.0.0-rc25"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
+    "nodemon": "^2.0.9",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.5"
   }
